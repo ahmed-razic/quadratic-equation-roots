@@ -71,7 +71,39 @@
       </ul>
     </header>
 
-    <main></main>
+    <main>
+      <div class="container">
+        <h4>Quadratic Equation Roots</h4>
+        <p>
+          Please enter coefficients a, b and c to calculate roots of equation
+          ax<sup>2</sup>+bx+c = 0.
+        </p>
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s8">
+                <input id="first_name" type="number" class="validate" />
+                <label for="first_name">Coefficient a</label>
+              </div>
+              <div class="input-field col s8">
+                <input id="first_name" type="number" class="validate" />
+                <label for="first_name">Coefficient b</label>
+              </div>
+              <div class="input-field col s8">
+                <input id="first_name" type="number" class="validate" />
+                <label for="first_name">Coefficient c</label>
+              </div>
+            </div>
+            <input type="submit" value="Calculate" class="btn" />
+          </form>
+        </div>
+        <div class="divider"></div>
+        <h4>Results</h4>
+        <p id="results-message">
+          Roots of quadratic equation ax<sup>2</sup>+bx+c = 0 are as follows.
+        </p>
+      </div>
+    </main>
 
     <footer class="page-footer">
       <p class="center-align">
