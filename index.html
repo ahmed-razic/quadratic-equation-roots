@@ -14,23 +14,77 @@
       media="screen,projection"
     />
 
+    <link rel="stylesheet" href="./css/style.css" />
+
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
 
   <body>
-    <nav>
-      <div class="nav-wrapper">
-        <a href="#!" class="brand-logo center">Quadratic Equation Roots</a>
-        <ul class="left hide-on-med-and-down">
-          <li class="active"><a href="sass.html">GitHub</a></li>
-          <li>
-            <a href="https://en.wikipedia.org/wiki/Quadratic_equation">Wiki</a>
-          </li>
-          <li class="active"><a href="collapsible.html">JavaScript</a></li>
-        </ul>
-      </div>
-    </nav>
+    <header>
+      <nav>
+        <div class="nav-wrapper container">
+          <a href="#!" class="brand-logo">Quadratic Equation Roots</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+            ><i class="material-icons">menu</i></a
+          >
+          <ul class="right hide-on-med-and-down">
+            <li class="active">
+              <a
+                href="https://github.com/ahmed-razic/quadratic-equation-roots"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://en.wikipedia.org/wiki/Quadratic_equation"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Wiki</a
+              >
+            </li>
+            <li class="active"><a href="./about.html">About</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <ul class="sidenav" id="mobile-demo">
+        <li class="active">
+          <a
+            href="https://github.com/ahmed-razic/quadratic-equation-roots"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://en.wikipedia.org/wiki/Quadratic_equation"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Wiki</a
+          >
+        </li>
+        <li class="active"><a href="./about.html">About</a></li>
+      </ul>
+    </header>
+
+    <main></main>
+
+    <footer class="page-footer">
+      <p class="center-align">
+        © 2022
+        <a
+          href="https://github.com/ahmed-razic/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="white-text"
+          >Ahmed Razic</a
+        >
+      </p>
+    </footer>
 
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="js/materialize.min.js"></script>
