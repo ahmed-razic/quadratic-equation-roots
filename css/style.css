@@ -8,13 +8,8 @@ main {
   flex: 1 0 auto;
 }
 
-.container {
-  width: 40%;
-  margin: 2rem auto;
-}
-
 #input-form {
-  width: 50%;
+  width: 30%;
   margin-bottom: 3rem;
 }
 
@@ -25,15 +20,4 @@ main {
 
 #results-div {
   display: none;
-}
-
-@media only screen and (min-width: 500px) {
-  .container {
-    width: 70%;
-    margin: 0 auto;
-  }
-  #input-form {
-    width: 70%;
-    margin-bottom: 3rem;
-  }
 }

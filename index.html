@@ -78,61 +78,59 @@
       </ul>
     </header>
 
-    <main>
-      <div class="container parent">
-        <div>
-          <h4>Quadratic Equation Roots</h4>
-          <p>Enter a, b and c to calculate roots of ax<sup>2</sup>+bx+c=0.</p>
+    <main class="container">
+      <div class="parent">
+        <h4>Quadratic Equation Roots</h4>
+        <p>Enter a, b and c to calculate roots of ax<sup>2</sup>+bx+c=0.</p>
 
-          <form id="input-form">
-            <div class="input-field">
-              <input id="coeff-a" type="number" class="validate" />
-              <label for="coeff-a">Coefficient a</label>
-            </div>
+        <form id="input-form">
+          <div class="input-field">
+            <input id="coeff-a" type="number" class="validate" />
+            <label for="coeff-a">Coefficient a</label>
+          </div>
 
-            <div class="input-field">
-              <input id="coeff-b" type="number" class="validate" />
-              <label for="coeff-b">Coefficient b</label>
-            </div>
+          <div class="input-field">
+            <input id="coeff-b" type="number" class="validate" />
+            <label for="coeff-b">Coefficient b</label>
+          </div>
 
-            <div class="input-field">
-              <input id="coeff-c" type="number" class="validate" />
-              <label for="coeff-c">Coefficient c</label>
-            </div>
-
-            <button
-              id="submit-button"
-              class="btn waves-effect waves-light"
-              type="submit"
-              name="action"
-            >
-              Calculate
-            </button>
-          </form>
-        </div>
-
-        <div id="results-div">
-          <h4>Results</h4>
-          <p>
-            Roots of quadratic equation ax<sup>2</sup>+bx+c = 0 are as follows.
-          </p>
-          <ul id="results" class="collection"></ul>
+          <div class="input-field">
+            <input id="coeff-c" type="number" class="validate" />
+            <label for="coeff-c">Coefficient c</label>
+          </div>
 
           <button
-            id="clear-results"
+            id="submit-button"
             class="btn waves-effect waves-light"
-            type="button"
+            type="submit"
             name="action"
           >
-            Clear Results
+            Calculate
           </button>
-          <div>
-            <h6 id="message"></h6>
-          </div>
+        </form>
+      </div>
+
+      <div id="results-div">
+        <h4>Results</h4>
+        <p>
+          Roots of quadratic equation ax<sup>2</sup>+bx+c = 0 are as follows.
+        </p>
+        <ul id="results" class="collection"></ul>
+
+        <button
+          id="clear-results"
+          class="btn waves-effect waves-light"
+          type="button"
+          name="action"
+        >
+          Clear Results
+        </button>
+        <div>
+          <h6 id="message"></h6>
         </div>
-        <div class="center">
-          <img class="loader center" src="./img/loading.gif" alt="loader" />
-        </div>
+      </div>
+      <div class="center">
+        <img class="loader center" src="./img/loading.gif" alt="loader" />
       </div>
     </main>
 
