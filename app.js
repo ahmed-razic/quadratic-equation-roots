@@ -21,8 +21,8 @@ function loadAllEventsHandlers() {
   navbarLink.addEventListener('click', makeActiveLink);
   document.addEventListener('DOMContentLoaded', sideNavigation);
   inputForm.addEventListener('submit', calculateRoots);
-  results.addEventListener('click', deleteResult);
   clearResults.addEventListener('click', clearAllResults);
+  results.addEventListener('click', openImage);
 }
 
 function sideNavigation() {
@@ -32,8 +32,10 @@ function sideNavigation() {
 
 function makeActiveLink() {}
 
-function calculateRoots() {
-  if (coeffA.value === '' && coeffB.value === '' && coeffC.value === '') {
+function calculateRoots(e) {
+  e.preventDefault();
+
+  if (coeffA.value === '' || coeffB.value === '' || coeffC.value === '') {
     showAlert('Please check your inputs');
   } else {
     const a = parseInt(coeffA.value);
@@ -46,22 +48,77 @@ function calculateRoots() {
 
       return;
     } else if (D === 0) {
-      setMessage('Roots will be real and the same.', 'brown');
+      setMessage('Roots will be real numbers and equal.', 'brown');
     } else {
-      setMessage('Roots will be real and different.', 'green');
+      setMessage('Roots will be real numbers and different.', 'green');
     }
 
     const x1 = ((-b - Math.sqrt(D)) / 2) * a;
     const x2 = ((-b + Math.sqrt(D)) / 2) * a;
 
-    console.log(a, b, c, D, x1.toFixed(2), x2.toFixed(2));
+    addRoots(x1, x2, a, b, c, D);
+
     clearInputs();
   }
 }
 
-function deleteResult() {}
+function addRoots(x1, x2, a, b, c, D) {
+  const li = document.createElement('li');
+  li.className = 'collection-item avatar';
+  li.style.height = '100px';
 
-function clearAllResults() {}
+  const avatar = document.createElement('a');
+  avatar.className = 'circle';
+  avatar.setAttribute('href', findImg(a, D));
+  avatar.innerHTML = '<i class="material-icons">insights</i>';
+
+  const equation = document.createElement('span');
+  equation.className = 'title';
+  equation.appendChild(
+    document.createTextNode(
+      `Equation: ${a}x ${b < 0 ? '' : '+'} ${b}x ${c < 0 ? '' : '+'} ${c}`
+    )
+  );
+
+  const roots = document.createElement('p');
+  roots.appendChild(document.createTextNode(`x1: ${x1.toFixed(2)}`));
+  roots.appendChild(document.createElement('br'));
+  roots.appendChild(document.createTextNode(`x2: ${x2.toFixed(2)}`));
+
+  console.log(roots);
+
+  li.appendChild(avatar);
+  li.appendChild(equation);
+  li.appendChild(roots);
+
+  results.appendChild(li);
+  console.log(results);
+}
+
+function findImg(a, D) {
+  if (D === 0) {
+    if (a > 0) {
+      return '/img/quad3.png';
+    } else if (a < 0) {
+      return '/img/quad4.png';
+    }
+  } else if (D > 0) {
+    if (a > 0) {
+      return '/img/quad1.png';
+    } else if (a < 0) {
+      return '/img/quad2.png';
+    }
+  }
+}
+
+function openImage(e) {
+  if (e.target.classList.contains('circle')) {
+  }
+}
+
+function clearAllResults() {
+  results.innerHTML = '';
+}
 
 //Prepare message
 function setMessage(msg, color) {
