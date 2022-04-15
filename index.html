@@ -23,14 +23,16 @@
   <body>
     <header>
       <nav>
-        <div class="nav-wrapper container">
+        <div class="nav-wrapper container red lighten-2">
           <a href="#!" class="brand-logo center">Quadratic Equation</a>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"
             ><i class="material-icons">menu</i></a
           >
-          <ul class="right hide-on-med-and-down">
-            <li class="active">
+          <ul class="right hide-on-med-and-down links">
+            <!-- add dynamically class="active" to appropriate link -->
+            <li>
               <a
+                class="github"
                 href="https://github.com/ahmed-razic/quadratic-equation-roots"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -39,20 +41,24 @@
             </li>
             <li>
               <a
+                class="wiki"
                 href="https://en.wikipedia.org/wiki/Quadratic_equation"
                 target="_blank"
                 rel="noopener noreferrer"
                 >Wiki</a
               >
             </li>
-            <li class="active"><a href="./about.html">About</a></li>
+            <li>
+              <a class="about" href="./about.html">About</a>
+            </li>
           </ul>
         </div>
       </nav>
 
-      <ul class="sidenav" id="mobile-demo">
-        <li class="active">
+      <ul class="sidenav links" id="mobile-demo">
+        <li>
           <a
+            class="github"
             href="https://github.com/ahmed-razic/quadratic-equation-roots"
             target="_blank"
             rel="noopener noreferrer"
@@ -61,13 +67,14 @@
         </li>
         <li>
           <a
+            class="wiki"
             href="https://en.wikipedia.org/wiki/Quadratic_equation"
             target="_blank"
             rel="noopener noreferrer"
             >Wiki</a
           >
         </li>
-        <li class="active"><a href="./about.html">About</a></li>
+        <li><a class="about" href="./about.html">About</a></li>
       </ul>
     </header>
 
@@ -79,33 +86,56 @@
           ax<sup>2</sup>+bx+c = 0.
         </p>
         <div class="row">
-          <form class="col s12">
+          <form id="input-form" class="col s12">
             <div class="row">
-              <div class="input-field col s8">
-                <input id="first_name" type="number" class="validate" />
-                <label for="first_name">Coefficient a</label>
-              </div>
-              <div class="input-field col s8">
-                <input id="first_name" type="number" class="validate" />
-                <label for="first_name">Coefficient b</label>
-              </div>
-              <div class="input-field col s8">
-                <input id="first_name" type="number" class="validate" />
-                <label for="first_name">Coefficient c</label>
+              <div class="input-field col s3">
+                <input id="coeff-a" type="number" class="validate" />
+                <label for="coeff-a">Coefficient a</label>
               </div>
             </div>
-            <input type="submit" value="Calculate" class="btn" />
+            <div class="row">
+              <div class="input-field col s3">
+                <input id="coeff-b" type="number" class="validate" />
+                <label for="coeff-b">Coefficient a</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s3">
+                <input id="coeff-c" type="number" class="validate" />
+                <label for="coeff-c">Coefficient a</label>
+              </div>
+            </div>
+
+            <button
+              class="btn waves-effect waves-light"
+              type="submit"
+              name="action"
+            >
+              Calculate
+            </button>
           </form>
         </div>
         <div class="divider"></div>
-        <h4>Results</h4>
-        <p id="results-message">
-          Roots of quadratic equation ax<sup>2</sup>+bx+c = 0 are as follows.
-        </p>
+        <div class="results">
+          <h4>Results</h4>
+          <p id="result-message">
+            Roots of quadratic equation ax<sup>2</sup>+bx+c = 0 are as follows.
+          </p>
+          <ul id="results"></ul>
+
+          <button
+            id="clear-button"
+            class="btn waves-effect waves-light"
+            type="button"
+            name="action"
+          >
+            Clear Results
+          </button>
+        </div>
       </div>
     </main>
 
-    <footer class="page-footer">
+    <footer class="page-footer red lighten-2">
       <p class="center-align">
         © 2022
         <a
