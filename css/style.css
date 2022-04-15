@@ -9,15 +9,20 @@ main {
 }
 
 .container {
-  width: 50%;
+  width: 40%;
   margin: 2rem auto;
 }
+
 #input-form {
   width: 50%;
   margin-bottom: 3rem;
 }
 
 .loader {
+  display: none;
   margin: 0 auto;
-  visibility: hidden;
+}
+
+#results-div {
+  display: none;
 }

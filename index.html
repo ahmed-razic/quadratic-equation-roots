@@ -82,27 +82,27 @@
       <div class="container parent">
         <h4>Quadratic Equation Roots</h4>
         <p>
-          Please enter coefficients a, b and c to calculate roots of equation
-          ax<sup>2</sup>+bx+c = 0.
+          Enter coeffs a, b and c to calculate roots of ax<sup>2</sup>+bx+c = 0.
         </p>
 
         <form id="input-form">
           <div class="input-field">
-            <input id="coeff-a" type="number" class="validate" />
+            <input id="coeff-a" type="number" class="validate" value="1" />
             <label for="coeff-a">Coefficient a</label>
           </div>
 
           <div class="input-field">
-            <input id="coeff-b" type="number" class="validate" />
-            <label for="coeff-b">Coefficient a</label>
+            <input id="coeff-b" type="number" class="validate" value="1" />
+            <label for="coeff-b">Coefficient b</label>
           </div>
 
           <div class="input-field">
-            <input id="coeff-c" type="number" class="validate" len />
-            <label for="coeff-c">Coefficient a</label>
+            <input id="coeff-c" type="number" class="validate" value="-3" />
+            <label for="coeff-c">Coefficient c</label>
           </div>
 
           <button
+            id="submit-button"
             class="btn waves-effect waves-light"
             type="submit"
             name="action"
@@ -110,31 +110,27 @@
             Calculate
           </button>
         </form>
+        <div id="results-div">
+          <h4>Results</h4>
+          <p>
+            Roots of quadratic equation ax<sup>2</sup>+bx+c = 0 are as follows.
+          </p>
+          <ul id="results" class="collection"></ul>
 
-        <div class="contaier">
-          <div id="results-div">
-            <h4>Results</h4>
-            <p>
-              Roots of quadratic equation ax<sup>2</sup>+bx+c = 0 are as
-              follows.
-            </p>
-            <ul id="results" class="collection"></ul>
-
-            <button
-              id="clear-results"
-              class="btn waves-effect waves-light"
-              type="button"
-              name="action"
-            >
-              Clear Results
-            </button>
-            <div>
-              <h6 id="message"></h6>
-            </div>
-            <div>
-              <img class="loader" src="./img/loading.gif" alt="loader" />
-            </div>
+          <button
+            id="clear-results"
+            class="btn waves-effect waves-light"
+            type="button"
+            name="action"
+          >
+            Clear Results
+          </button>
+          <div>
+            <h6 id="message"></h6>
           </div>
+        </div>
+        <div class="center">
+          <img class="loader center" src="./img/loading.gif" alt="loader" />
         </div>
       </div>
     </main>

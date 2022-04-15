@@ -3,6 +3,7 @@
 //UI elements
 const navbarLink = document.querySelector('.navbar-links');
 const inputForm = document.querySelector('#input-form');
+const submitButton = document.querySelector('#submit-button');
 const coeffA = document.querySelector('#coeff-a');
 const coeffB = document.querySelector('#coeff-b');
 const coeffC = document.querySelector('#coeff-c');
@@ -11,6 +12,8 @@ const resultsDiv = document.querySelector('#results-div');
 const clearResults = document.querySelector('#clear-results');
 let message = document.querySelector('#message');
 const loader = document.querySelector('.loader');
+
+console.log(loader);
 
 //global variables
 let equationCoeffs;
@@ -57,17 +60,14 @@ function calculateRoots(e) {
     const x1 = ((-b - Math.sqrt(D)) / 2) * a;
     const x2 = ((-b + Math.sqrt(D)) / 2) * a;
 
-    setLoader(true);
-    setTimeout(function () {
-      setLoader(false);
-    }, 2000);
-
     addRoots(x1, x2, a, b, c, D);
     clearInputs();
   }
 }
 
 function addRoots(x1, x2, a, b, c, D) {
+  setLoader(true);
+
   const li = document.createElement('li');
   li.className = 'collection-item avatar';
   li.style.height = '100px';
@@ -97,6 +97,11 @@ function addRoots(x1, x2, a, b, c, D) {
   li.appendChild(roots);
 
   results.appendChild(li);
+
+  setTimeout(function () {
+    setLoader(false);
+  }, 1000);
+
   console.log(results);
 }
 
@@ -122,7 +127,10 @@ function openImage(e) {
 }
 
 function clearAllResults() {
-  results.innerHTML = '';
+  if (confirm('Are you sure?')) {
+    results.innerHTML = '';
+  }
+  setMessage('All results cleared', 'green');
 }
 
 //Prepare message
@@ -135,7 +143,7 @@ function setMessage(msg, color) {
     if (color === 'red') {
       clearInputs();
     }
-  }, 3000);
+  }, 5000);
 }
 
 //Show alert
@@ -164,6 +172,12 @@ function showAlert(error) {
 function setLoader(input) {
   resultsDiv.style.display = input ? 'none' : 'block';
   loader.style.display = input ? 'block' : 'none';
+
+  if (input) {
+    submitButton.setAttribute('disabled', input);
+  } else {
+    submitButton.removeAttribute('disabled');
+  }
 }
 
 //Clear inputs
