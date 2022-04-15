@@ -13,8 +13,6 @@ const clearResults = document.querySelector('#clear-results');
 let message = document.querySelector('#message');
 const loader = document.querySelector('.loader');
 
-console.log(loader);
-
 //global variables
 let equationCoeffs;
 
@@ -90,8 +88,6 @@ function addRoots(x1, x2, a, b, c, D) {
   roots.appendChild(document.createElement('br'));
   roots.appendChild(document.createTextNode(`x2: ${x2.toFixed(2)}`));
 
-  console.log(roots);
-
   li.appendChild(avatar);
   li.appendChild(equation);
   li.appendChild(roots);
@@ -101,8 +97,6 @@ function addRoots(x1, x2, a, b, c, D) {
   setTimeout(function () {
     setLoader(false);
   }, 1000);
-
-  console.log(results);
 }
 
 function findImg(a, D) {
