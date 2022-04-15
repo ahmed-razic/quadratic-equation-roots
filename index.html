@@ -79,7 +79,7 @@
     </header>
 
     <main>
-      <div class="container">
+      <div class="container parent">
         <h4>Quadratic Equation Roots</h4>
         <p>
           Please enter coefficients a, b and c to calculate roots of equation
@@ -103,7 +103,6 @@
               <div class="input-field col s3">
                 <input id="coeff-c" type="number" class="validate" value="3" />
                 <label for="coeff-c">Coefficient a</label>
-              </div>
             </div>
 
             <button
@@ -117,7 +116,7 @@
         </div>
 
         <div class="divider"></div>
-        <div class="results">
+        <div id="results-div">
           <h4>Results</h4>
           <p>
             Roots of quadratic equation ax<sup>2</sup>+bx+c = 0 are as follows.
@@ -132,7 +131,7 @@
           >
             Clear Results
           </button>
-          <h5 id="message"></h5>
+          <div><h5 id="message"></h5></div>
         </div>
       </div>
     </main>

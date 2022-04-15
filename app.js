@@ -7,6 +7,7 @@ const coeffA = document.querySelector('#coeff-a');
 const coeffB = document.querySelector('#coeff-b');
 const coeffC = document.querySelector('#coeff-c');
 const results = document.querySelector('#results');
+const resultsDiv = document.querySelector('#results-div');
 const clearResults = document.querySelector('#clear-results');
 let message = document.querySelector('#message');
 
@@ -19,7 +20,6 @@ loadAllEventsHandlers();
 function loadAllEventsHandlers() {
   navbarLink.addEventListener('click', makeActiveLink);
   document.addEventListener('DOMContentLoaded', sideNavigation);
-  document.addEventListener('DOMContentLoaded', getAllResults);
   inputForm.addEventListener('submit', calculateRoots);
   results.addEventListener('click', deleteResult);
   clearResults.addEventListener('click', clearAllResults);
@@ -32,8 +32,6 @@ function sideNavigation() {
 
 function makeActiveLink() {}
 
-function getAllResults() {}
-
 function calculateRoots() {
   if (coeffA.value === '' && coeffB.value === '' && coeffC.value === '') {
     showAlert('Please check your inputs');
@@ -44,7 +42,8 @@ function calculateRoots() {
     const D = b * b - 4 * a * c;
 
     if (D < 0) {
-      setMessage('Roots will be complex numbers.', 'red');
+      showAlert('Roots are complex numbers.');
+
       return;
     } else if (D === 0) {
       setMessage('Roots will be real and the same.', 'brown');
@@ -78,8 +77,26 @@ function setMessage(msg, color) {
 }
 
 //Show alert
-function showAlert() {
-  console.log('alert');
+function showAlert(error) {
+  resultsDiv.style.display = 'none';
+
+  const alertDiv = document.createElement('div');
+  alertDiv.className = 'alert card-panel red';
+
+  const alertH5 = document.createElement('h5');
+  alertH5.className = 'white-text center-align';
+  alertH5.appendChild(document.createTextNode(error));
+
+  alertDiv.appendChild(alertH5);
+
+  const parent = document.querySelector('.parent');
+  parent.appendChild(alertDiv);
+
+  setTimeout(function () {
+    alertDiv.style.display = 'none';
+    resultsDiv.style.display = 'block';
+    clearInputs();
+  }, 3000);
 }
 
 //Clear inputs
