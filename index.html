@@ -28,7 +28,7 @@
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"
             ><i class="material-icons">menu</i></a
           >
-          <ul class="right hide-on-med-and-down links">
+          <ul class="right hide-on-med-and-down navbar-links">
             <!-- add dynamically class="active" to appropriate link -->
             <li>
               <a
@@ -55,7 +55,7 @@
         </div>
       </nav>
 
-      <ul class="sidenav links" id="mobile-demo">
+      <ul class="sidenav navbar-links" id="mobile-demo">
         <li>
           <a
             class="github"
@@ -89,19 +89,19 @@
           <form id="input-form" class="col s12">
             <div class="row">
               <div class="input-field col s3">
-                <input id="coeff-a" type="number" class="validate" />
+                <input id="coeff-a" type="number" class="validate" value="1" />
                 <label for="coeff-a">Coefficient a</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s3">
-                <input id="coeff-b" type="number" class="validate" />
+                <input id="coeff-b" type="number" class="validate" value="2" />
                 <label for="coeff-b">Coefficient a</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s3">
-                <input id="coeff-c" type="number" class="validate" />
+                <input id="coeff-c" type="number" class="validate" value="3" />
                 <label for="coeff-c">Coefficient a</label>
               </div>
             </div>
@@ -115,22 +115,24 @@
             </button>
           </form>
         </div>
+
         <div class="divider"></div>
         <div class="results">
           <h4>Results</h4>
-          <p id="result-message">
+          <p>
             Roots of quadratic equation ax<sup>2</sup>+bx+c = 0 are as follows.
           </p>
           <ul id="results"></ul>
 
           <button
-            id="clear-button"
+            id="clear-results"
             class="btn waves-effect waves-light"
             type="button"
             name="action"
           >
             Clear Results
           </button>
+          <h5 id="message"></h5>
         </div>
       </div>
     </main>
