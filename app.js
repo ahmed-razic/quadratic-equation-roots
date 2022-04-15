@@ -14,6 +14,7 @@ let message = document.querySelector('#message');
 let equationCoeffs;
 
 //Load all event handlers
+loadAllEventsHandlers();
 
 function loadAllEventsHandlers() {
   navbarLink.addEventListener('click', makeActiveLink);
@@ -34,7 +35,9 @@ function makeActiveLink() {}
 function getAllResults() {}
 
 function calculateRoots() {
-  if (coeffA.value !== '' && coeffB.value !== '' && coeffC.value !== '') {
+  if (coeffA.value === '' && coeffB.value === '' && coeffC.value === '') {
+    showAlert('Please check your inputs');
+  } else {
     const a = parseInt(coeffA.value);
     const b = parseInt(coeffB.value);
     const c = parseInt(coeffC.value);
@@ -42,19 +45,18 @@ function calculateRoots() {
 
     if (D < 0) {
       setMessage('Roots will be complex numbers.', 'red');
-      //return;
+      return;
     } else if (D === 0) {
       setMessage('Roots will be real and the same.', 'brown');
     } else {
       setMessage('Roots will be real and different.', 'green');
     }
 
-    const x1 = -b - Math.sqrt(D);
+    const x1 = ((-b - Math.sqrt(D)) / 2) * a;
+    const x2 = ((-b + Math.sqrt(D)) / 2) * a;
 
-    console.log(a, b, c, D);
+    console.log(a, b, c, D, x1.toFixed(2), x2.toFixed(2));
     clearInputs();
-  } else {
-    showAlert('Please check your inputs');
   }
 }
 
@@ -62,19 +64,16 @@ function deleteResult() {}
 
 function clearAllResults() {}
 
-loadAllEventsHandlers();
-
 //Prepare message
 function setMessage(msg, color) {
   message.style.color = color;
   message.textContent = msg;
-  console.log(color);
-  if (color === 'red') {
-    console.log(color);
-    clearInputs();
-  }
+
   setTimeout(function () {
     message.textContent = '';
+    if (color === 'red') {
+      clearInputs();
+    }
   }, 3000);
 }
 
@@ -85,7 +84,7 @@ function showAlert() {
 
 //Clear inputs
 function clearInputs() {
-  coeffA.value === '';
-  coeffB.value === '';
-  coeffC.value === '';
+  coeffA.value = '';
+  coeffB.value = '';
+  coeffC.value = '';
 }
