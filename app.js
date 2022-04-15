@@ -10,6 +10,7 @@ const results = document.querySelector('#results');
 const resultsDiv = document.querySelector('#results-div');
 const clearResults = document.querySelector('#clear-results');
 let message = document.querySelector('#message');
+const loader = document.querySelector('.loader');
 
 //global variables
 let equationCoeffs;
@@ -48,16 +49,20 @@ function calculateRoots(e) {
 
       return;
     } else if (D === 0) {
-      setMessage('Roots will be real numbers and equal.', 'brown');
+      setMessage('Roots are real numbers and equal.', 'brown');
     } else {
-      setMessage('Roots will be real numbers and different.', 'green');
+      setMessage('Roots are real numbers and different.', 'green');
     }
 
     const x1 = ((-b - Math.sqrt(D)) / 2) * a;
     const x2 = ((-b + Math.sqrt(D)) / 2) * a;
 
-    addRoots(x1, x2, a, b, c, D);
+    setLoader(true);
+    setTimeout(function () {
+      setLoader(false);
+    }, 2000);
 
+    addRoots(x1, x2, a, b, c, D);
     clearInputs();
   }
 }
@@ -154,6 +159,11 @@ function showAlert(error) {
     resultsDiv.style.display = 'block';
     clearInputs();
   }, 3000);
+}
+
+function setLoader(input) {
+  resultsDiv.style.display = input ? 'none' : 'block';
+  loader.style.display = input ? 'block' : 'none';
 }
 
 //Clear inputs

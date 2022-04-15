@@ -88,17 +88,17 @@
 
         <form id="input-form">
           <div class="input-field">
-            <input id="coeff-a" type="number" class="validate" value="1" />
+            <input id="coeff-a" type="number" class="validate" />
             <label for="coeff-a">Coefficient a</label>
           </div>
 
           <div class="input-field">
-            <input id="coeff-b" type="number" class="validate" value="2" />
+            <input id="coeff-b" type="number" class="validate" />
             <label for="coeff-b">Coefficient a</label>
           </div>
 
           <div class="input-field">
-            <input id="coeff-c" type="number" class="validate" value="-3" len />
+            <input id="coeff-c" type="number" class="validate" len />
             <label for="coeff-c">Coefficient a</label>
           </div>
 
@@ -111,22 +111,30 @@
           </button>
         </form>
 
-        <div id="results-div">
-          <h4>Results</h4>
-          <p>
-            Roots of quadratic equation ax<sup>2</sup>+bx+c = 0 are as follows.
-          </p>
-          <ul id="results" class="collection"></ul>
+        <div class="contaier">
+          <div id="results-div">
+            <h4>Results</h4>
+            <p>
+              Roots of quadratic equation ax<sup>2</sup>+bx+c = 0 are as
+              follows.
+            </p>
+            <ul id="results" class="collection"></ul>
 
-          <button
-            id="clear-results"
-            class="btn waves-effect waves-light"
-            type="button"
-            name="action"
-          >
-            Clear Results
-          </button>
-          <h5 id="message"></h5>
+            <button
+              id="clear-results"
+              class="btn waves-effect waves-light"
+              type="button"
+              name="action"
+            >
+              Clear Results
+            </button>
+            <div>
+              <h6 id="message"></h6>
+            </div>
+            <div>
+              <img class="loader" src="./img/loading.gif" alt="loader" />
+            </div>
+          </div>
         </div>
       </div>
     </main>

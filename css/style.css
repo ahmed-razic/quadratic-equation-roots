@@ -16,3 +16,8 @@ main {
   width: 50%;
   margin-bottom: 3rem;
 }
+
+.loader {
+  margin: 0 auto;
+  visibility: hidden;
+}
